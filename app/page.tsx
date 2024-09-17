@@ -1,6 +1,4 @@
 import { PrismaClient } from '@prisma/client'
-import ChatInput from './chatinput';
-import { redirect } from 'next/navigation'
 import Interface from './interface';
 
 const prisma = new PrismaClient()

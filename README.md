@@ -2,7 +2,7 @@ Meet Baya, the world's best healthcare chatbot.
 
 ## Setting up
 
-First, run the development server:
+First, update `.env` with the necessary API keys. Then, run the development server:
 
 ```bash
 npm run dev
