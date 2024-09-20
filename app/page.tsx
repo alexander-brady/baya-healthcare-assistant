@@ -43,8 +43,8 @@ async function getPatient() {
 export default async function Home() {
   const patient = await getPatient();
   return (
-    <main className="flex flex-col sm:gap-4 sm:pt-44 sm:pb-60 sm:pl-40 h-screen">
+    <section className="flex flex-col sm:gap-2 sm:pb-20 h-full flex-1 w-1/2">
         <Interface firstname={patient?.first_name || 'Guest' } />
-    </main>
+    </section>
   );
 }

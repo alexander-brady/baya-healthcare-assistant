@@ -45,4 +45,5 @@ export default async function generate(query:string) {
     return watson
     .generateText(params)
     .then(res => res.result.results[0].generated_text);
+    // .generateTextStream(params)
 }
