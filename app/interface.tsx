@@ -41,7 +41,7 @@ function Book(setMessages:Dispatch<SetStateAction<Message[]>>) {
 export default function Interface(props: { firstname: string }) {
 
     const { firstname } = props;
-    const bottomRef = useRef(null);
+    const bottomRef = useRef<null | HTMLDivElement>(null);
 
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
