@@ -1,5 +1,7 @@
 Meet Baya, the world's best healthcare chatbot.
 
+Relies on a separate Vector database backend.
+
 ## Setting up
 
 First, update `.env` with the necessary API keys. Then, run the development server:
