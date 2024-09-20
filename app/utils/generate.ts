@@ -40,10 +40,11 @@ export default async function generate(query:string) {
         } : undefined,
     };
 
-    return 'generated text here';
+    // return 'generated text here';    
 
     return watson
     .generateText(params)
-    .then(res => res.result.results[0].generated_text);
+    .then(res => res.result.results[0].generated_text)
+    .catch(_ => 'Error generating output');
     // .generateTextStream(params)
 }

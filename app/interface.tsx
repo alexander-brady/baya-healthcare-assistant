@@ -94,7 +94,7 @@ export default function Interface(props: { firstname: string }) {
                 <h1 className="text-3xl font-semibold">Welcome back, {firstname}</h1>
                 <span className="text-xl sm:pb-8">How are you feeling today?</span>
 
-                <span>You have <b>2</b> upcoming <a href='/appointments' className='text-blue-500'>appointments.</a> 
+                <span>You have <b>2</b> upcoming <a href='/appointments' className='text-blue-500'>appointments. </a> 
                 Your next appointment is on Monday, at 4pm with Dr. Ziegler, at the Cleveland Clinic.</span>
                 <span>Your next <a href='/medications' className='text-blue-500'>medication</a> is Xionide, in 2 hours.</span>
                 {/* <span>You have <b>2</b> upcoming <a href='/appointments' className='text-blue-500'>appointments.</a> 
@@ -105,9 +105,8 @@ export default function Interface(props: { firstname: string }) {
             <div className='flex flex-col gap-4 w-full overflow-y-auto pb-14'>
                 {messages
                     .filter((message) => message.source != 'system')
-                    .map((message) => (
-                    <>
-                        <div className={`flex ${message.source == 'user' && 'justify-end'}`}>
+                    .map((message, i) => (
+                        <div key={i} className={`flex ${message.source == 'user' && 'justify-end'}`}>
                             {message.source === 'assistant' ? 
                             <Avatar>
                                 <AvatarImage src="/baya.png" alt="@Baya"/>
@@ -119,7 +118,6 @@ export default function Interface(props: { firstname: string }) {
                                 {message.message}
                             </div>
                         </div>
-                    </>
                 ))}
                 { messages[messages.length - 1].source == 'user' ?
                 <div className='flex'>
