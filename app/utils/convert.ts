@@ -29,7 +29,7 @@ ${PATIENT_DATA}`
 
 export async function convert (messages: Message[], RAG=true) {
 
-    let context:string = RAG ? '' : 'Use the following retrieved information to answer the user\'s query accurately:';
+    let context = '\nContext:\n\n';
     
     if (RAG) {
         const response = await fetch(`http://127.0.0.1:5000/query`, {
@@ -43,8 +43,6 @@ export async function convert (messages: Message[], RAG=true) {
         });
 
         const data = await response.json();
-
-        let context = '\nContext:\n\n';
 
         for (const elem of data) {
             context += `(Source: ${elem.source})\n${elem.content}\n`;
