@@ -32,20 +32,26 @@ export async function convert (messages: Message[], RAG=true) {
     let context = '\nContext:\n\n';
     
     if (RAG) {
-        const response = await fetch('flask/query', {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST', 
-            body: JSON.stringify({
-                query: messages[messages.length - 1].message
-            }),
-        });
+        try
+        {
+            const response = await fetch('flask/query', {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST', 
+                body: JSON.stringify({
+                    query: messages[messages.length - 1].message
+                }),
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        for (const elem of data) {
-            context += `(Source: ${elem.source})\n${elem.content}\n`;
+            for (const elem of data) {
+                context += `(Source: ${elem.source})\n${elem.content}\n`;
+            }
+        }
+        catch (error) { 
+            RAG = false;
         }
     }
     messages = [ { source: 'system', message: SYSTEM}, ...messages ];
