@@ -46,7 +46,7 @@ export default function RootLayout({
       >
         <div className="flex min-h-screen w-full flex-col bg-muted/40">
           <div className='sticky top-0 flex pt-4 w-full z-50 pl-20 pr-14'>
-            <div className="flex items-end text-l text-muted-foreground font-thin"><b className="font-semibold text-xl text-green-400 mr-2">baya.ai </b> Patient support, reinvented</div>
+            <div className="flex items-end text-l text-muted-foreground font-thin"><b className="font-semibold text-xl text-emerald-500 mr-2">baya.ai </b> Patient support, reinvented</div>
             <TooltipProvider>
               <Tooltip>
                   <TooltipTrigger asChild>

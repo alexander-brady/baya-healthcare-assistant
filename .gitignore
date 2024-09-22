@@ -36,3 +36,6 @@ next-env.d.ts
 # prisma
 /prisma/*
 !/prisma/schema.prisma
+
+# pycache
+__pycache__/

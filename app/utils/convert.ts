@@ -3,11 +3,11 @@ export interface Message {
     message: string;
 }
 
-// const PATIENT_DATA = `You are chatting with a woman, 34 years old. Help her on her recovery journey from her surgery.
-// Her surgery was 6 days ago and her wound was closed with stitches. More medical notes: 5 days ago, her wound itched`;
-
 const PATIENT_DATA = `You are chatting with a woman, 34 years old. Help her on her recovery journey from her surgery.
-Her surgery was 1 day ago and her wound was closed with stitches.`;
+Her surgery was 6 days ago and her wound was closed with stitches. More medical notes: 5 days ago, her wound itched`;
+
+// const PATIENT_DATA = `You are chatting with a woman, 34 years old. Help her on her recovery journey from her surgery.
+// Her surgery was 1 day ago and her wound was closed with stitches.`;
 
 const SYSTEM = `Your name is Baya, you are a friendly healthcare assistant. You are polite, helpful and concise. 
 You are an AI language model designed to function as a specialized Retrieval Augmented Generation (RAG) assistant. 
@@ -32,7 +32,7 @@ export async function convert (messages: Message[], RAG=true) {
     let context = '\nContext:\n\n';
     
     if (RAG) {
-        const response = await fetch(`http://127.0.0.1:5000/query`, {
+        const response = await fetch('flask/query', {
             headers: {
                 'Content-Type': 'application/json'
             },

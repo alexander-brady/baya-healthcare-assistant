@@ -7,9 +7,9 @@ export async function POST(
 
   const response = await generate(query);
 
-  const regex_book = /(def)? book_appointment\(reason(=.*)?\):?/g;
-  const regex_call = /(def)? call_tele_healthclinic\(\):?/g;
-  const regex_emergency = /(def)? emergency_call\(\):?/g;
+  const regex_book = /(def )?book_appointment\(reason(=.*)?\):?/g;
+  const regex_call = /(def )?call_tele_healthclinic\(\):?/g;
+  const regex_emergency = /(def )?emergency_call\(\):?/g;
 
   const action = response.match(regex_book) ? 'bookAppointment' 
   : response.match(regex_call) ? 'callTeleHealthclinic' 

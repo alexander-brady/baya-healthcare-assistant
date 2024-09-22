@@ -58,7 +58,7 @@ export default function Interface(props: { firstname: string }) {
             
             const converted = await convert(messages);
 
-            const response = await fetch(`http://localhost:3000/api/query`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/query`, {
                 method: 'POST', 
                 body: JSON.stringify({
                     query:converted
@@ -94,26 +94,26 @@ export default function Interface(props: { firstname: string }) {
                 <h1 className="text-3xl font-semibold">Welcome back, {firstname}</h1>
                 <span className="text-xl sm:pb-8">How are you feeling today?</span>
 
-                <span>You have <b>2</b> upcoming <a href='/appointments' className='text-blue-500'>appointments. </a> 
+                {/* <span>You have <b>2</b> upcoming <a href='/appointments' className='text-blue-500'>appointments. </a> 
                 Your next appointment is on Monday, at 4pm with Dr. Ziegler, at the Cleveland Clinic.</span>
-                <span>Your next <a href='/medications' className='text-blue-500'>medication</a> is Xionide, in 2 hours.</span>
-                {/* <span>You have <b>2</b> upcoming <a href='/appointments' className='text-blue-500'>appointments.</a> 
+                <span>Your next <a href='/medications' className='text-blue-500'>medication</a> is Xionide, in 2 hours.</span> */}
+                <span>You have <b>2</b> upcoming <a href='/appointments' className='text-blue-500'>appointments.</a> 
                 Your next appointment is tomorrow, at 4pm with Dr. Ziegler, at the Cleveland Clinic.</span>
-                <span>Your next <a href='/medications' className='text-blue-500'>medication</a> is Xionide, in 18 hours.</span> */}
+                <span>Your next <a href='/medications' className='text-blue-500'>medication</a> is Xionide, in 18 hours.</span>
             </>
             : 
             <div className='flex flex-col gap-4 w-full overflow-y-auto pb-14'>
                 {messages
                     .filter((message) => message.source != 'system')
                     .map((message, i) => (
-                        <div key={i} className={`flex ${message.source == 'user' && 'justify-end'}`}>
+                        <div key={i} className={`flex items-end ${message.source == 'user' && 'justify-end'}`}>
                             {message.source === 'assistant' ? 
                             <Avatar>
                                 <AvatarImage src="/baya.png" alt="@Baya"/>
                                 <AvatarFallback>Baya</AvatarFallback>
                             </Avatar> : null}
                             <div className={`flex p-4 rounded-t-lg w-auto max-w-md
-                                ${message.source == 'user' ? 'bg-slate-200 rounded-bl-lg justify-end' : 'bg-green-200 rounded-br-lg'}`
+                                ${message.source == 'user' ? 'bg-slate-200 rounded-bl-lg justify-end' : 'bg-emerald-400 rounded-br-lg'}`
                             }>
                                 {message.message}
                             </div>
@@ -125,7 +125,7 @@ export default function Interface(props: { firstname: string }) {
                         <AvatarImage src="/baya.png" alt="@Baya" />
                         <AvatarFallback>Baya</AvatarFallback>
                     </Avatar>
-                    <div className='flex p-4 rounded-t-lg w-auto max-w-md bg-green-200 rounded-br-lg space-x-2'>
+                    <div className='flex p-4 rounded-t-lg w-auto max-w-md bg-emerald-400 rounded-br-lg space-x-2'>
                         <div className='w-1 h-1 bg-black rounded-full animate-bounce' style = {{ animationDelay: '0s'}}>
                         </div>
                         <div className='w-1 h-1 bg-black rounded-full animate-bounce' style = {{ animationDelay: '0.2s'}}>
