@@ -27,7 +27,7 @@ def query(query_string, top_k=1):
     return [{'source': source, 'content': document} for source, document in zip(sources, documents)]
 
 
-@app.route('/upload', methods=['PUT'])
+@app.route('/flask/upload', methods=['PUT'])
 def upload():
     data = request.get_json()
     docs = data.get('document', '')
@@ -35,7 +35,7 @@ def upload():
     upload_document(docs, source)
     return jsonify({"status": "success"}), 200
 
-@app.route('/query', methods=['POST'])
+@app.route('/flask/query', methods=['POST'])
 def home():
     data = request.get_json()
     s = data.get('query', '')
