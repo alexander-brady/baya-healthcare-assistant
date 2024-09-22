@@ -1,4 +1,4 @@
-import generate from "@/app/utils/generate";
+import generate from "@/utils/generate";
 
 export async function POST(
   req: Request,

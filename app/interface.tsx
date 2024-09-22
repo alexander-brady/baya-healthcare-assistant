@@ -11,7 +11,7 @@ import {
   TooltipContent,
   Tooltip
 } from '@/components/ui/tooltip';
-import { Message, convert } from '@/app/utils/convert';
+import { Message, convert } from '@/utils/convert';
 
 function Interactable(action:string, setAction:Dispatch<SetStateAction<string>>, setMessages:Dispatch<SetStateAction<Message[]>>) {
     const interact = () => {
