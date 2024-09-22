@@ -20,7 +20,7 @@ async function getPatient() {
               dob: new Date('1990-01-01'),
               gender: 'F',
 
-              email: 'alice12435@gmail.com',
+              email: 'alice124356@gmail.com',
 
               comments: 'Family history of shingles',
               appointments: {
