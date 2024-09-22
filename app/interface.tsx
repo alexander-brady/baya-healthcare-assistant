@@ -57,21 +57,23 @@ export default function Interface(props: { firstname: string }) {
             if (messages.length == 0 || messages[messages.length-1].source != 'user') return;
             
             const converted = await convert(messages);
-
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/query`, {
-                method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    query:converted
-                }),
-            });
-
-            const data = await response.json();
-            const botMessage = { source: 'assistant', message: data.message };
-            setAction(data.action);
-            setMessages((prevMessages) => [...prevMessages, botMessage]);
+            try {
+                const response = await fetch(`https://baya-health.vercel.app/api/query`, {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        query:converted
+                    }),
+                });
+                const data = await response.json();
+                const botMessage = { source: 'assistant', message: data.message };
+                setAction(data.action);
+                setMessages((prevMessages) => [...prevMessages, botMessage]);
+            } catch (error) {
+                setMessages((prevMessages) => [...prevMessages, { source: 'assistant', message: 'I am sorry, something went wrong.' }]);
+            }
             setIsDisabled(true);
         };
     
