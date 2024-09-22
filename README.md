@@ -5,6 +5,6 @@ Baya is a personal health assistant, designed to assist patients in recovering f
 
 ## Design
 
-Baya is powered by IBM WatsonX. A flask backend powers the chroma database for efficient retrieval-augmented generation, while NextJS provides the frontend and the inference. In addition to text generation, the large language model can call functions, which allow it to book appointments or make an emergency call. The frontend UI was designed with the help of TailwindCSS and shadcn.
+Baya is powered by IBM WatsonX. A flask backend powers the chroma database for efficient retrieval-augmented generation, while NextJS provides the frontend and the inference. In addition to text generation, the large language model can call functions, which allow it to book appointments or make an emergency call. The frontend UI was designed with the help of TailwindCSS and shadcn. A SQLite database is used to store user data with the Prisma ORM.
 
 Chat with Baya now: [Demo](https://baya-health.vercel.app)
