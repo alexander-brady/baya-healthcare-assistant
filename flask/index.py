@@ -1,7 +1,9 @@
 import chromadb
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 db = chromadb.chromadb.PersistentClient(path="/chroma")
 

@@ -51,7 +51,7 @@ export default function RootLayout({
               <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
-                      href='/settings'
+                      href='/'
                       className="ml-auto flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                     >
                       <Settings className="h-6 w-6" />
@@ -63,7 +63,7 @@ export default function RootLayout({
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
-                      href='/profile'
+                      href='/'
                       className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                     >
                       <User className="h-6 w-6" />
